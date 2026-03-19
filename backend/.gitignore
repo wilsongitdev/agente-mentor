@@ -1,0 +1,69 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Conda
+.conda/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# MyPy / type checkers
+.mypy_cache/
+.dmypy.json
+.pytype/
+
+# Logs
+logs/
+*.log
+
+# Uploads (PDFs subidos por usuarios)
+uploads/
+
+# Vector store indexes (se regeneran con seed_courses.py)
+db/faiss_index/
+db/chroma/
+
+# Firebase credentials (NUNCA subir al repositorio)
+config/firebase_credentials.json
+config/*.json
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IPython / Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Ruff / linters
+.ruff_cache/

@@ -1,0 +1,49 @@
+name: cv-analyzer
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      # API
+      - fastapi==0.111.0
+      - uvicorn[standard]==0.30.1
+      - python-multipart==0.0.9
+      - httpx==0.27.0
+      - aiofiles==23.2.1
+
+      # PDF Parsing
+      - pdfplumber==0.11.0
+      - "unstructured[pdf]==0.14.6"
+      - pymupdf==1.24.5
+
+      # LangChain / LangGraph
+      - langchain==0.2.11
+      - langchain-openai==0.1.17
+      - langchain-aws==0.1.9
+      - langchain-community==0.2.10
+      - langgraph==0.1.19
+      - langchain-core==0.2.25
+
+      # LLM providers
+      - openai==1.35.3
+      - boto3==1.34.131
+      - tiktoken==0.7.0
+
+      # Vector DB
+      - faiss-cpu==1.8.0
+      - chromadb==0.5.3
+
+      # Firebase
+      - firebase-admin==6.5.0
+
+      # Data / Utils
+      - pydantic==2.7.4
+      - pydantic-settings==2.3.4
+      - python-dotenv==1.0.1
+      - numpy==1.26.4
+      - pandas==2.2.2
+      - loguru==0.7.2
+      - tenacity==8.4.2
+      - uuid==1.30
