@@ -9,9 +9,9 @@ const PHASE_CONFIG = {
 }
 
 const LEVEL_COLORS = {
-  beginner:     'text-blue-300 bg-blue-500/10',
-  intermediate: 'text-yellow-300 bg-yellow-500/10',
-  advanced:     'text-orange-300 bg-orange-500/10',
+  beginner:     'text-blue-600 dark:text-blue-400 bg-blue-500/10',
+  intermediate: 'text-amber-600 dark:text-amber-400 bg-amber-500/10',
+  advanced:     'text-orange-600 dark:text-orange-400 bg-orange-500/10',
 }
 
 function CourseCard({ step, isLast }) {
@@ -40,24 +40,24 @@ function CourseCard({ step, isLast }) {
         {/* Phase badge */}
         <div className="flex items-center gap-2 mb-3">
           <span className="text-base">{phase.icon}</span>
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">
             {step.phase}
           </span>
         </div>
 
-        <h4 className="text-base font-bold text-slate-100 leading-snug mb-1">
+        <h4 className="text-base font-bold text-slate-900 leading-snug mb-1">
           {course.title}
         </h4>
 
         <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs text-slate-400 font-medium">{course.provider}</span>
+          <span className="text-xs text-slate-600 font-medium">{course.provider}</span>
           {course.level && (
-            <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${LEVEL_COLORS[course.level] || LEVEL_COLORS.intermediate}`}>
+            <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium border ${LEVEL_COLORS[course.level] || LEVEL_COLORS.intermediate} border-current/20`}>
               {course.level}
             </span>
           )}
           {course.duration_hours && (
-            <span className="flex items-center gap-1 text-xs text-slate-400">
+            <span className="flex items-center gap-1 text-xs text-slate-600">
               <Clock className="w-3 h-3" />
               {course.duration_hours}h
             </span>
@@ -68,20 +68,20 @@ function CourseCard({ step, isLast }) {
             </span>
           )}
           {course.rating && (
-            <span className="flex items-center gap-1 text-xs text-yellow-400">
+            <span className="flex items-center gap-1 text-xs text-amber-500 dark:text-brand-400">
               ★ {course.rating}
             </span>
           )}
         </div>
 
-        <p className="text-sm text-slate-400 leading-relaxed mb-3">
+        <p className="text-sm text-slate-700 leading-relaxed mb-3">
           {step.rationale}
         </p>
 
         {course.skills_covered?.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-3">
             {course.skills_covered.slice(0, 5).map((skill, i) => (
-              <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-slate-700/60 text-slate-300">
+              <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-slate-700/60 text-slate-500">
                 {skill}
               </span>
             ))}
@@ -113,6 +113,7 @@ export default function LearningPath({ learningPath }) {
     total_duration_hours,
     total_estimated_weeks,
     seniority_level,
+    professional_objective,
   } = learningPath
 
   // Group steps by phase for stats
@@ -128,11 +129,15 @@ export default function LearningPath({ learningPath }) {
       >
         <div className="flex items-center gap-3 mb-4">
           <Award className="w-6 h-6 text-brand-400" />
-          <h3 className="text-xl font-bold gradient-text">Tu Learning Path personalizado</h3>
+          <h3 className="text-xl font-bold gradient-text">
+            {professional_objective
+              ? `Tu ruta para convertirte en ${professional_objective}`
+              : 'Tu Learning Path personalizado'}
+          </h3>
         </div>
 
         {executive_summary && (
-          <p className="text-slate-300 leading-relaxed mb-5">{executive_summary}</p>
+          <p className="text-slate-800 leading-relaxed mb-5">{executive_summary}</p>
         )}
 
         {/* Stats */}
@@ -143,10 +148,10 @@ export default function LearningPath({ learningPath }) {
             { label: 'Semanas', value: `~${total_estimated_weeks}`, icon: '📅' },
             { label: 'Nivel objetivo', value: seniority_level, icon: '🎯' },
           ].map((stat) => (
-            <div key={stat.label} className="bg-slate-800/60 rounded-xl p-3 text-center">
+            <div key={stat.label} className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/5 rounded-xl p-3 text-center">
               <div className="text-2xl mb-1">{stat.icon}</div>
-              <div className="text-lg font-bold text-slate-100">{stat.value}</div>
-              <div className="text-xs text-slate-400">{stat.label}</div>
+              <div className="text-lg font-bold text-slate-900">{stat.value}</div>
+              <div className="text-xs text-slate-600">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -159,7 +164,7 @@ export default function LearningPath({ learningPath }) {
           return (
             <span
               key={phase}
-              className={`flex items-center gap-1.5 text-sm px-3 py-1 rounded-full border ${cfg.bg} text-slate-200 font-medium`}
+              className={`flex items-center gap-1.5 text-[10px] sm:text-xs px-3 py-1 rounded-full border ${cfg.bg} text-slate-800 font-bold uppercase tracking-wider`}
             >
               {cfg.icon} {phase}
             </span>
@@ -170,8 +175,8 @@ export default function LearningPath({ learningPath }) {
       {/* Steps timeline */}
       <div>
         <div className="flex items-center gap-2 mb-6">
-          <BookOpen className="w-5 h-5 text-brand-400" />
-          <h3 className="text-lg font-bold text-slate-100">Roadmap paso a paso</h3>
+          <BookOpen className="w-5 h-5 text-brand-600" />
+          <h3 className="text-lg font-bold text-slate-950">Roadmap paso a paso</h3>
         </div>
         <div>
           {steps.map((step, i) => (

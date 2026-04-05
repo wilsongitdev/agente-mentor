@@ -40,11 +40,11 @@ export default function ResultsPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-slate-950/80 backdrop-blur border-b border-white/5">
+      <div className="sticky top-0 z-10 bg-slate-50/80 backdrop-blur border-b border-slate-200/50 dark:border-white/5">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link
             to="/"
-            className="flex items-center gap-2 text-slate-400 hover:text-slate-200 transition-colors text-sm"
+            className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             Nuevo análisis
@@ -60,8 +60,8 @@ export default function ResultsPage() {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-5 py-3 text-sm font-medium border-b-2 transition-all ${
                 activeTab === tab.id
-                  ? 'border-brand-500 text-brand-300'
-                  : 'border-transparent text-slate-500 hover:text-slate-300'
+                  ? 'border-brand-500 text-brand-600 dark:text-brand-400'
+                  : 'border-transparent text-slate-500 hover:text-slate-950'
               }`}
             >
               <tab.icon className="w-4 h-4" />

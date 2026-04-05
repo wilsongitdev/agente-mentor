@@ -14,9 +14,10 @@ const client = axios.create({
  * @param {File} file
  * @returns {Promise<{ session_id: string, status: string, message: string }>}
  */
-export async function uploadCV(file) {
+export async function uploadCV(file, professionalObjective = "No especificado") {
   const formData = new FormData()
   formData.append('file', file)
+  formData.append('professional_objective', professionalObjective)
 
   const { data } = await client.post('/upload-cv', formData, {
     headers: { 'Content-Type': 'multipart/form-data' },
@@ -54,24 +55,37 @@ export async function getLearningPath(sessionId) {
  * Calls onProgress(status) each tick, resolves with the learning_path on success.
  *
  * @param {string} sessionId
- * @param {{ onProgress?: (status: string) => void, intervalMs?: number, maxAttempts?: number }} options
+ * @param {{ onProgress?: (status: string) => void, intervalMs?: number, maxAttempts?: number, signal?: AbortSignal }} options
  * @returns {Promise<object>}
  */
 export async function pollUntilDone(
   sessionId,
-  { onProgress = () => {}, intervalMs = 3000, maxAttempts = 100 } = {}
+  { onProgress = () => {}, intervalMs = 3000, maxAttempts = 100, signal } = {}
 ) {
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    // Check if aborted before each request
+    if (signal?.aborted) throw new Error('Operación cancelada por el usuario.')
+
     const job = await getJobStatus(sessionId)
     onProgress(job.status)
 
-    if (job.status === 'completed') {
+    if (job.status === 'completed' || job.status === 'completado') {
       return job.learning_path
     }
-    if (job.status === 'failed') {
-      throw new Error(job.errors?.join('\n') || 'Pipeline failed.')
+    if (job.status === 'failed' || job.status === 'fallido') {
+      throw new Error(job.errors?.join('\n') || 'El análisis ha fallado.')
     }
-    await new Promise((r) => setTimeout(r, intervalMs))
+
+    // Wait with abortion check
+    await new Promise((resolve, reject) => {
+      const timer = setTimeout(resolve, intervalMs)
+      if (signal) {
+        signal.addEventListener('abort', () => {
+          clearTimeout(timer)
+          reject(new Error('Operación cancelada por el usuario.'))
+        }, { once: true })
+      }
+    })
   }
-  throw new Error('Timeout waiting for analysis to complete.')
+  throw new Error('Se agotó el tiempo de espera para el análisis.')
 }

@@ -2,16 +2,16 @@ import { motion } from 'framer-motion'
 import { Zap, TrendingUp, Star } from 'lucide-react'
 
 const LEVEL_CONFIG = {
-  beginner:     { color: 'bg-blue-500/20 text-blue-300 border-blue-500/30',     dots: 1 },
-  intermediate: { color: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30', dots: 2 },
-  advanced:     { color: 'bg-orange-500/20 text-orange-300 border-orange-500/30', dots: 3 },
-  expert:       { color: 'bg-green-500/20 text-green-300 border-green-500/30',   dots: 4 },
+  beginner:     { color: 'bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-300 border-blue-200 dark:border-blue-500/30',     dots: 1 },
+  intermediate: { color: 'bg-amber-500/10 dark:bg-yellow-500/20 text-amber-600 dark:text-yellow-300 border-amber-200 dark:border-yellow-500/30', dots: 2 },
+  advanced:     { color: 'bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-300 border-orange-200 dark:border-orange-500/30', dots: 3 },
+  expert:       { color: 'bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-300 border-green-200 dark:border-green-500/30',   dots: 4 },
 }
 
 const PRIORITY_CONFIG = {
-  high:   { color: 'bg-red-500/20 text-red-300 border-red-500/30',    label: 'Alta prioridad' },
-  medium: { color: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30', label: 'Media prioridad' },
-  low:    { color: 'bg-slate-500/20 text-slate-300 border-slate-500/30',  label: 'Baja prioridad' },
+  high:   { color: 'bg-red-500/10 dark:bg-red-500/20 text-red-600 dark:text-red-300 border-red-200 dark:border-red-500/30',    label: 'Alta prioridad' },
+  medium: { color: 'bg-amber-500/10 dark:bg-yellow-500/20 text-amber-600 dark:text-yellow-300 border-amber-200 dark:border-yellow-500/30', label: 'Media prioridad' },
+  low:    { color: 'bg-slate-500/10 dark:bg-slate-500/20 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-500/30',  label: 'Baja prioridad' },
 }
 
 function SkillBadge({ skill }) {
@@ -44,12 +44,12 @@ function SuggestedSkillCard({ skill }) {
       animate={{ opacity: 1, y: 0 }}
     >
       <div className="flex items-center justify-between">
-        <span className="font-semibold text-slate-100">{skill.name}</span>
-        <span className={`text-xs px-2 py-0.5 rounded-full border ${cfg.color}`}>
+        <span className="font-semibold text-slate-900">{skill.name}</span>
+        <span className={`text-[10px] px-2 py-0.5 rounded-full border ${cfg.color}`}>
           {cfg.label}
         </span>
       </div>
-      <p className="text-sm text-slate-400">{skill.reason}</p>
+      <p className="text-sm text-slate-600">{skill.reason}</p>
     </motion.div>
   )
 }
@@ -69,9 +69,9 @@ export default function SkillsDisplay({ currentSkills = [], suggestedSkills = []
             <h2 className="text-2xl font-bold gradient-text">{candidateName}</h2>
           )}
           <div className="flex items-center gap-2 mt-1">
-            <Star className="w-4 h-4 text-yellow-400" />
-            <span className="text-slate-300 font-medium capitalize">
-              Nivel: <span className="text-yellow-300">{seniority}</span>
+            <Star className="w-4 h-4 text-amber-500 dark:text-yellow-400" />
+            <span className="text-slate-600 dark:text-slate-300 font-medium capitalize text-sm">
+              Nivel: <span className="text-amber-600 dark:text-yellow-300">{seniority}</span>
             </span>
           </div>
         </div>
@@ -80,8 +80,8 @@ export default function SkillsDisplay({ currentSkills = [], suggestedSkills = []
       {/* Current skills by category */}
       <div>
         <div className="flex items-center gap-2 mb-4">
-          <Zap className="w-5 h-5 text-brand-400" />
-          <h3 className="text-lg font-bold text-slate-100">
+          <Zap className="w-5 h-5 text-brand-600" />
+          <h3 className="text-lg font-bold text-slate-950">
             Habilidades actuales ({currentSkills.length})
           </h3>
         </div>
@@ -120,8 +120,8 @@ export default function SkillsDisplay({ currentSkills = [], suggestedSkills = []
       {suggestedSkills.length > 0 && (
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="w-5 h-5 text-purple-400" />
-            <h3 className="text-lg font-bold text-slate-100">
+            <TrendingUp className="w-5 h-5 text-purple-600" />
+            <h3 className="text-lg font-bold text-slate-950">
               Habilidades recomendadas ({suggestedSkills.length})
             </h3>
           </div>

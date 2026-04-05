@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Brain, Layers, Zap, Map } from 'lucide-react'
@@ -14,31 +14,74 @@ const FEATURES = [
   { icon: Map, title: 'Learning Path', desc: 'Roadmap personalizado ordenado de Junior a Senior' },
 ]
 
+/**
+ * HomePage Component
+ * 
+ * Punto de entrada principal de la aplicación. Gestiona el estado de carga,
+ * la subida del archivo PDF y el proceso de 'polling' (consulta recurrente)
+ * hasta que el análisis multi-agente en el backend finaliza.
+ */
 export default function HomePage() {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [currentStatus, setCurrentStatus] = useState('idle')
+  const [resetKey, setResetKey] = useState(0)
+  
+  const abortControllerRef = useRef(null)
 
-  const handleUpload = async (file) => {
+  /**
+   * Resetea el flujo de trabajo a su estado inicial.
+   * Cancela cualquier petición de red activa (polling) usando AbortController.
+   */
+  const resetFlow = () => {
+    // Abort active polling if any (Stop the recursion in the service)
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+      abortControllerRef.current = null
+    }
+
+    setIsLoading(false)
+    setCurrentStatus('idle')
+    setResetKey(prev => prev + 1) // Forzar re-montaje del componente de subida
+  }
+
+  /**
+   * Orquestador de la subida y análisis del CV.
+   * 
+   * @param {File} selectedFile - El archivo PDF seleccionado.
+   * @param {string} selectedObjective - El objetivo profesional (ej: 'Data Analyst').
+   */
+  const handleUpload = async (selectedFile, selectedObjective) => {
     setIsLoading(true)
-    setCurrentStatus('processing')
+    setCurrentStatus('procesando')
+
+    // Initialize abort controller to handle user cancellations
+    const controller = new AbortController()
+    abortControllerRef.current = controller
 
     try {
-      const { session_id } = await uploadCV(file)
+      // 1. Upload to start the LangGraph process
+      const { session_id } = await uploadCV(selectedFile, selectedObjective)
       toast.success('CV recibido. Iniciando análisis…')
 
+      // 2. Poll the status until completion (handled by the service)
       const learningPath = await pollUntilDone(session_id, {
         onProgress: setCurrentStatus,
         intervalMs: 3000,
+        signal: controller.signal,
       })
 
       toast.success('¡Análisis completado!')
-      navigate(`/results/${session_id}`, { state: { learningPath } })
+      const lp = learningPath
+      resetFlow()
+      // Redirigir a la página de resultados con la data obtenida
+      navigate(`/results/${session_id}`, { state: { learningPath: lp } })
     } catch (err) {
-      toast.error(err.message || 'Error al procesar el CV')
-      setCurrentStatus('idle')
-    } finally {
-      setIsLoading(false)
+      // Manejo de errores y cancelación manual
+      if (err.message !== 'Operación cancelada por el usuario.') {
+        toast.error(err.message || 'Error al procesar el CV')
+      }
+      resetFlow()
     }
   }
 
@@ -59,18 +102,18 @@ export default function HomePage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-600/20 border border-brand-500/30 text-brand-300 text-sm font-medium mb-6">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              Powered by LangGraph + GPT-4 / Claude
+              Powered by LangGraph + AWS Bedrock
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black leading-tight mb-4">
               <span className="gradient-text">CV Analyzer</span>
               <br />
-              <span className="text-slate-200 text-3xl sm:text-5xl font-bold">
+              <span className="text-slate-800 text-3xl sm:text-5xl font-bold">
                 Tu Learning Path con IA
               </span>
             </h1>
 
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10">
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto mb-10">
               Sube tu CV y nuestra plataforma multi-agente analiza tus habilidades,
               detecta brechas y genera un roadmap de aprendizaje personalizado.
             </p>
@@ -83,9 +126,16 @@ export default function HomePage() {
             transition={{ delay: 0.3 }}
           >
             {isLoading ? (
-              <LoadingSpinner currentStatus={currentStatus} />
+              <LoadingSpinner 
+                currentStatus={currentStatus} 
+                onCancel={resetFlow}
+              />
             ) : (
-              <CVUpload onUpload={handleUpload} isLoading={isLoading} />
+              <CVUpload 
+                key={resetKey}
+                onUpload={handleUpload} 
+                isLoading={isLoading} 
+              />
             )}
           </motion.div>
         </div>
@@ -107,10 +157,10 @@ export default function HomePage() {
                 transition={{ delay: 0.1 * i }}
               >
                 <div className="w-10 h-10 rounded-xl bg-brand-600/20 flex items-center justify-center">
-                  <f.icon className="w-5 h-5 text-brand-400" />
+                  <f.icon className="w-5 h-5 text-brand-600" />
                 </div>
-                <h3 className="font-semibold text-slate-100">{f.title}</h3>
-                <p className="text-sm text-slate-400">{f.desc}</p>
+                <h3 className="font-semibold text-slate-900">{f.title}</h3>
+                <p className="text-sm text-slate-600">{f.desc}</p>
               </motion.div>
             ))}
           </div>
