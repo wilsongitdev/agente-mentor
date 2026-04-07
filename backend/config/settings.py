@@ -1,8 +1,12 @@
 """
-Centralised settings loaded from environment variables via pydantic-settings.
-Import `settings` anywhere in the project to access typed configuration.
+Configuración Centralizada (Settings)
+
+Esta clase gestiona la carga de variables de entorno mediante Pydantic Settings.
+Proporciona validación de tipos y valores predeterminados para todos los componentes
+del sistema (LLMs, Base de datos, Vector Store, Observabilidad).
 """
 
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -11,6 +15,12 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    """
+    Schema global de configuración del proyecto.
+    
+    Carga automáticamente las variables del archivo .env si existe.
+    Las prioridades de carga son: Variables de entorno > Archivo .env > Valores Default.
+    """
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
@@ -18,14 +28,23 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
+    # ── Sandbox ───────────────────────────────────────────────────────────
+    e2b_api_key: str = Field(default="", alias="E2B_API_KEY")
+
     # ── LLM ───────────────────────────────────────────────────────────────
     llm_provider: str = Field(default="openai", pattern="^(openai|bedrock)$")
     openai_api_key: str = Field(default="")
     openai_model: str = Field(default="gpt-4o-mini")
-    aws_access_key_id: str = Field(default="")
-    aws_secret_access_key: str = Field(default="")
-    aws_region: str = Field(default="us-east-1")
-    bedrock_model_id: str = Field(default="anthropic.claude-3-sonnet-20240229-v1:0")
+    aws_access_key_id: str = Field(default="", alias="AWS_ACCESS_KEY_ID")
+    aws_secret_access_key: str = Field(default="", alias="AWS_SECRET_ACCESS_KEY")
+    aws_region: str = Field(default="us-east-1", alias="AWS_REGION")
+    bedrock_model_id: str = Field(default="anthropic.claude-3-sonnet-20240229-v1:0", alias="BEDROCK_MODEL_ID")
+
+    # ── LLM Juez (evaluación / LLM-as-Judge) ─────────────────────────────
+    # Debe ser un modelo más potente que el agente que evalúa.
+    # Por defecto apunta al mismo modelo que el agente, pero se recomienda
+    # cambiarlo a un modelo superior (ej: Sonnet sobre Haiku, gpt-4o sobre gpt-4o-mini).
+    judge_model_id: str = Field(default="", alias="JUDGE_MODEL_ID")
 
     # ── Embeddings ────────────────────────────────────────────────────────
     embedding_model: str = Field(default="text-embedding-3-small")
@@ -53,6 +72,12 @@ class Settings(BaseSettings):
     # ── Logging ───────────────────────────────────────────────────────────
     log_level: str = Field(default="INFO")
 
+    # ── LangSmith (Observabilidad) ────────────────────────────────────────
+    langchain_tracing_v2: str = Field(default="false")
+    langchain_endpoint: str = Field(default="https://api.smith.langchain.com")
+    langchain_api_key: str = Field(default="")
+    langchain_project: str = Field(default="agente-mentor")
+
     @field_validator("upload_dir", mode="after")
     @classmethod
     def ensure_upload_dir(cls, v: str) -> str:
@@ -66,7 +91,23 @@ class Settings(BaseSettings):
 
 @lru_cache
 def get_settings() -> Settings:
-    return Settings()
+    """
+    Factoría para instanciar y cachear la configuración global.
+    
+    Inyecta las variables de LangSmith en el entorno del sistema para que 
+    LangChain las detecte automáticamente al inicio.
+
+    Returns:
+        Settings: Instancia única de la clase Settings.
+    """
+    s = Settings()
+    # Exportar vars de LangSmith al entorno de OS para que LangChain las lea
+    # en el momento en que importa sus módulos internos.
+    os.environ["LANGCHAIN_TRACING_V2"] = s.langchain_tracing_v2
+    os.environ["LANGCHAIN_ENDPOINT"] = s.langchain_endpoint
+    os.environ["LANGCHAIN_API_KEY"] = s.langchain_api_key
+    os.environ["LANGCHAIN_PROJECT"] = s.langchain_project
+    return s
 
 
 settings = get_settings()

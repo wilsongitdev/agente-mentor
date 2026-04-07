@@ -14,6 +14,7 @@ class AgentState(TypedDict, total=False):
     # ── Session ───────────────────────────────────────────────────────────
     session_id: str
     pdf_path: str
+    professional_objective: str
 
     # ── PDF Parser output ─────────────────────────────────────────────────
     cv_text: str

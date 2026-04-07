@@ -43,6 +43,10 @@ logs/
 # Uploads (PDFs subidos por usuarios)
 uploads/
 
+# CVs de prueba (Información de candidatos reales)
+evaluations/real_world/cvs_to_test/
+*.temp_page.jpg
+
 # Vector store indexes (se regeneran con seed_courses.py)
 db/faiss_index/
 db/chroma/

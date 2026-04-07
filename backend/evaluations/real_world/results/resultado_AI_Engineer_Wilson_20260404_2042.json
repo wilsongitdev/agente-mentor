@@ -1,0 +1,433 @@
+{
+  "session_id": "real-test-20260404-2041",
+  "cv_text": "Wilson Chavesta +51 957338243\nmanuelchavesta@gmail.com\nwww.linkedin.com/in/wilsonchavesta\nData Scientist | AI Engineer | IA Generativa\nhttps://github.com/wilsongitdev\nLima, Perú\nPERFIL Ingeniero con Maestría en Inteligencia Artificial. Especializado en diseñar\nsoluciones que utilizan modelos avanzados para generar contenido y\nautomatizar procesos. Actualmente enfocado en integrar asistentes de voz\ninteligentes y crear datos artificiales para entrenar sistemas de IA de alta\nprecisión\nEXPERIENC IA Practicante de IA Generativa | HechicerIA\nFebrero 2026 Presente\n Evalúo y ajusto modelos de última generación (Wan 2.5, LTX) para\nmejorar la creación automática de videos\n Lidero la creación de conjuntos de datos artificiales (data sintética) para\nque los modelos de IA aprendan de forma más rápida y precisa\nLogro: Logré que la IA mantenga la calidad visual original al transformar o\nestilizar videos mediante instrucciones de texto precisas\nAnalista de Datos | Freelance\nJunio 2025 Presente\n Diseñé tableros de control visual (Dashboards) que permiten a las\nempresas entender sus ventas de té y tomar mejores decisiones\nfinancieras\n Analicé grandes volúmenes de datos comerciales para identificar cuáles\nson los productos y países más rentables\nLogro: Implementé un dashboard de análisis de ventas que simplifica el\nseguimiento del éxito de cada producto\nIngeniero de Mantenimiento Indoor | TH INTERNACIONAL S.A.C\nMarzo 2024 a Diciembre 2025\n Revisé el estado de las estaciones base (BTS) para su correcto\nseguimiento\n Registro, seguimiento y análisis de estados de mantenimiento mediante\nExcel para control operativo y reportes\n Organicé y mejoré el flujo de trabajo del mantenimiento, asegurando el\ncumplimiento de los pasos desde la inspección hasta la validación del\nservicio\nLogro: Reduje los tiempos de ejecución mediante mejoras de procesos\nPracticante en Inteligencia Artificial | UN PULMÓN MÁS\nOctubre 2024 a Diciembre 2024\n Gestioné datasets mediante limpieza y análisis exploratorio de datos de\nventas utilizando Python y Pandas\n Investigué y evalué técnicas de Machine Learning basadas en literatura\ncientífica para su aplicación en datos históricos\n Documenté el flujo de trabajo, desde el análisis de datos hasta el\nmodelado final\nLogro: Desarrollé y evalué un prototipo de sistema de recomendación\nsobre datos históricos de ventas\n\nPROYECTOS Optimización de redes de transporte usando Deep Learning | Tesis de Maestría\nAgosto 2024 a Abril 2025\n Realicé EDA avanzado y limpieza de datos temporales\n Entrenamiento de modelos como XGBoost, LSTM y GRU usando Python,\npandas, NumPy y scikit-learn\n Evaluar el impacto de modelos predictivos en la optimización de rutas\nEquipo electrónico de control de alcoholemia con capacidad de detección de\nflujo de aire dirigido y reconocimiento de rostro | Publicación y patente\nEnero 2021 a Junio 2023\n Integré un modelo pre-entrenado (FaceNet) para la identificación de\nusuarios\n Preprocesé y preparé el conjunto de datos de imágenes\n Validación mediante matriz de confusión para medir precisión y tasas de\nerror\nEDUCACIÓN AI Engineer\nData Science Research Perú, Noviembre 2025 al Presente\n SQL for data analysis: Advanced SQL Querying Techniques\nUdemy, Septiembre 2025 a Diciembre 2025\n AZ-900: Microsoft Azure Fundamentals\nUniversidad Internacional de La Rioja (UNIR), Enero 2025 a Febrero 2025\n Máster Universitario en Inteligencia Artificial\nUniversidad Internacional de La Rioja (UNIR), Marzo 2024 a Abril 2025\nTesis: Optimización de redes de transporte usando deep learning\n Ingeniero Electrónico\nUniversidad Peruana de Ciencias Aplicadas (UPC), Junio 2012 a Junio 2020\nTesis: Desarrollo de un equipo electrónico de control de alcoholemia con\ncapacidad de detección de flujo de aire dirigido y reconocimiento de rostro\n(Calificación: Notable)\nPUBLICACION Publicación: 2nd International Conference on Applied Tech (Abril 2021)\nY PATENTE Electronic Equipment with Face Recognition for Alcohol Measurement \n Patente: Solicitud 001450-2021/DIN (Indecopi). Concedida en\nSeptiembre de 2023\nHABILIDADES Cloud & AI: AWS (Amazon Bedrock - Agentes de Voz), Microsoft Azure\nDIGITALES (AZ-900), Generación de Data Sintética, Integración de APIs\n Deep Learning & ML: Python (PyTorch, Scikit-learn), Modelos\nMultimodales (Wan 2.5, LTX), XGBoost, LSTM, GRU\n Data Analysis: SQL Avanzado , Análisis Exploratorio de Datos (EDA),\nGit/GitHub\nIDIOMAS Inglés: B2 (First Certificate in English)\n Español: Nativo",
+  "professional_objective": "AI Engineer",
+  "errors": [],
+  "candidate_name": "Wilson Chavesta",
+  "seniority_level": "mid",
+  "years_total_experience": 2.0,
+  "current_skills": [
+    {
+      "name": "Python",
+      "category": "Programación",
+      "level": "advanced",
+      "type": "explicita",
+      "justification": "Uso en proyectos de ML, tesis, y prácticas"
+    },
+    {
+      "name": "PyTorch",
+      "category": "Machine Learning",
+      "level": "intermediate",
+      "type": "explicita",
+      "justification": "Mencionado en habilidades de Deep Learning"
+    },
+    {
+      "name": "Scikit-learn",
+      "category": "Machine Learning",
+      "level": "intermediate",
+      "type": "explicita",
+      "justification": "Uso en entrenamiento de modelos de tesis"
+    },
+    {
+      "name": "AWS Bedrock",
+      "category": "Cloud & AI",
+      "level": "beginner",
+      "type": "explicita",
+      "justification": "Mencionado en habilidades digitales"
+    },
+    {
+      "name": "Generative AI",
+      "category": "AI",
+      "level": "intermediate",
+      "type": "explicita",
+      "justification": "Experiencia en HechicerIA con modelos generativos"
+    }
+  ],
+  "suggested_skills": [
+    {
+      "name": "LangChain",
+      "priority": "high"
+    },
+    {
+      "name": "MLflow",
+      "priority": "medium"
+    },
+    {
+      "name": "FastAPI",
+      "priority": "high"
+    },
+    {
+      "name": "Docker",
+      "priority": "medium"
+    }
+  ],
+  "profile_summary": "Candidato con formación sólida en IA, maestría especializada y experiencia práctica en proyectos de inteligencia artificial generativa y machine learning. Perfil técnico robusto con potencial de crecimiento en AI Engineering.",
+  "current_step": "learning_path_generator",
+  "matched_courses": [
+    {
+      "id": "ml-003",
+      "title": "MLOps: De Notebooks a Producción",
+      "provider": "Platzi",
+      "url": "https://platzi.com/cursos/mlops",
+      "description": "CI/CD para ML, MLflow, DVC, Docker en pipelines de machine learning.",
+      "skills_covered": [
+        "MLOps",
+        "MLflow",
+        "DVC",
+        "Docker",
+        "CI/CD",
+        "Python"
+      ],
+      "level": "advanced",
+      "duration_hours": 20.0,
+      "category": "DevOps / Infrastructure",
+      "language": "es",
+      "rating": 4.7,
+      "relevance_score": 0.6102
+    },
+    {
+      "id": "de-001",
+      "title": "Ingeniería de Datos con Apache Spark y PySpark",
+      "provider": "Coursera",
+      "url": "https://coursera.org/learn/data-engineering-spark",
+      "description": "Procesamiento masivo de datos, Spark SQL, DataFrames y streaming.",
+      "skills_covered": [
+        "Apache Spark",
+        "PySpark",
+        "Big Data",
+        "SQL",
+        "Python"
+      ],
+      "level": "intermediate",
+      "duration_hours": 30.0,
+      "category": "Data Science / ML",
+      "language": "es",
+      "rating": 4.7,
+      "relevance_score": 0.5553
+    },
+    {
+      "id": "be-002",
+      "title": "Microservicios con Docker y Kubernetes",
+      "provider": "Udemy",
+      "url": "https://udemy.com/course/microservicios-docker-kubernetes",
+      "description": "Diseña e implementa arquitecturas de microservicios usando Docker y K8s.",
+      "skills_covered": [
+        "Docker",
+        "Kubernetes",
+        "Microservicios",
+        "DevOps",
+        "CI/CD"
+      ],
+      "level": "advanced",
+      "duration_hours": 28.0,
+      "category": "DevOps / Infrastructure",
+      "language": "es",
+      "rating": 4.8,
+      "relevance_score": 0.6746
+    },
+    {
+      "id": "ai-001",
+      "title": "LangChain y LangGraph: Construye Agentes IA Avanzados",
+      "provider": "Udemy",
+      "url": "https://udemy.com/course/langchain-langgraph-agents",
+      "description": "Crea sistemas multi-agente, RAG pipelines y flujos complejos con LangGraph.",
+      "skills_covered": [
+        "LangChain",
+        "LangGraph",
+        "LLMs",
+        "RAG",
+        "Python",
+        "Agentes IA"
+      ],
+      "level": "advanced",
+      "duration_hours": 16.0,
+      "category": "Framework / Library",
+      "language": "es",
+      "rating": 4.8,
+      "relevance_score": 0.6698
+    },
+    {
+      "id": "ml-005",
+      "title": "Machine Learning Aplicado a Negocio",
+      "provider": "Coursera",
+      "url": "https://coursera.org/learn/ml-aplicado-negocio",
+      "description": "Casos de uso de churn, recomendación y scoring de riesgo con ML clásico.",
+      "skills_covered": [
+        "Machine Learning",
+        "Modelos de Clasificación",
+        "Modelos de Regresión",
+        "Business Metrics"
+      ],
+      "level": "intermediate",
+      "duration_hours": 28.0,
+      "category": "Data Science / ML",
+      "language": "es",
+      "rating": 4.8,
+      "relevance_score": 0.6826
+    },
+    {
+      "id": "ai-002",
+      "title": "Prompt Engineering: Domina los LLMs",
+      "provider": "Platzi",
+      "url": "https://platzi.com/cursos/prompt-engineering",
+      "description": "Técnicas avanzadas de prompting: few-shot, chain-of-thought, structured output.",
+      "skills_covered": [
+        "Prompt Engineering",
+        "LLMs",
+        "GPT",
+        "Claude",
+        "OpenAI API"
+      ],
+      "level": "intermediate",
+      "duration_hours": 8.0,
+      "category": "Data Science / ML",
+      "language": "es",
+      "rating": 4.7,
+      "relevance_score": 0.5568
+    },
+    {
+      "id": "aws-003",
+      "title": "AWS Bedrock y Generative AI para Desarrolladores",
+      "provider": "Udemy",
+      "url": "https://udemy.com/course/aws-bedrock-generative-ai",
+      "description": "Integra LLMs como Claude y Llama 2 en aplicaciones usando AWS Bedrock.",
+      "skills_covered": [
+        "AWS Bedrock",
+        "LLMs",
+        "Claude",
+        "Generative AI",
+        "Python",
+        "boto3"
+      ],
+      "level": "intermediate",
+      "duration_hours": 12.0,
+      "category": "Cloud Platform",
+      "language": "es",
+      "rating": 4.6,
+      "relevance_score": 0.5464
+    },
+    {
+      "id": "ml-007",
+      "title": "Deep Neural Networks with PyTorch",
+      "provider": "IBM / Coursera",
+      "url": "https://www.coursera.org/learn/deep-neural-networks-with-pytorch",
+      "description": "Desarrollo de modelos de Deep Learning usando PyTorch. Tensores, Autograd, Redes Convolucionales y Transfer Learning.",
+      "skills_covered": [
+        "PyTorch",
+        "Deep Learning",
+        "Python",
+        "Computer Vision",
+        "Neural Networks"
+      ],
+      "level": "advanced",
+      "duration_hours": 24.0,
+      "category": "Data Science / ML",
+      "language": "en",
+      "rating": 4.8,
+      "relevance_score": 0.7087
+    }
+  ],
+  "learning_path": {
+    "session_id": "real-test-20260404-2041",
+    "candidate_name": "Wilson Chavesta",
+    "seniority_level": "mid",
+    "total_duration_hours": 80.0,
+    "total_estimated_weeks": 18.0,
+    "steps": [
+      {
+        "step": 1,
+        "phase": "Core",
+        "course": {
+          "id": "ai-002",
+          "title": "Prompt Engineering: Domina los LLMs",
+          "provider": "Platzi",
+          "url": "https://platzi.com/cursos/prompt-engineering",
+          "description": "Técnicas avanzadas de prompting: few-shot, chain-of-thought, structured output.",
+          "skills_covered": [
+            "Prompt Engineering",
+            "LLMs",
+            "GPT",
+            "Claude",
+            "OpenAI API"
+          ],
+          "level": "intermediate",
+          "duration_hours": 8.0,
+          "category": "Data Science / ML",
+          "language": "es",
+          "rating": 4.7,
+          "relevance_score": 0.5568
+        },
+        "rationale": "Profundizar en Prompt Engineering es crucial para dominar la interacción con LLMs, complementando tu experiencia actual en IA generativa",
+        "estimated_weeks": 2
+      },
+      {
+        "step": 2,
+        "phase": "Core",
+        "course": {
+          "id": "aws-003",
+          "title": "AWS Bedrock y Generative AI para Desarrolladores",
+          "provider": "Udemy",
+          "url": "https://udemy.com/course/aws-bedrock-generative-ai",
+          "description": "Integra LLMs como Claude y Llama 2 en aplicaciones usando AWS Bedrock.",
+          "skills_covered": [
+            "AWS Bedrock",
+            "LLMs",
+            "Claude",
+            "Generative AI",
+            "Python",
+            "boto3"
+          ],
+          "level": "intermediate",
+          "duration_hours": 12.0,
+          "category": "Cloud Platform",
+          "language": "es",
+          "rating": 4.6,
+          "relevance_score": 0.5464
+        },
+        "rationale": "Potenciar tu conocimiento actual de AWS Bedrock con un curso práctico que integra LLMs en aplicaciones reales",
+        "estimated_weeks": 3
+      },
+      {
+        "step": 3,
+        "phase": "Especialización",
+        "course": {
+          "id": "ai-001",
+          "title": "LangChain y LangGraph: Construye Agentes IA Avanzados",
+          "provider": "Udemy",
+          "url": "https://udemy.com/course/langchain-langgraph-agents",
+          "description": "Crea sistemas multi-agente, RAG pipelines y flujos complejos con LangGraph.",
+          "skills_covered": [
+            "LangChain",
+            "LangGraph",
+            "LLMs",
+            "RAG",
+            "Python",
+            "Agentes IA"
+          ],
+          "level": "advanced",
+          "duration_hours": 16.0,
+          "category": "Framework / Library",
+          "language": "es",
+          "rating": 4.8,
+          "relevance_score": 0.6698
+        },
+        "rationale": "LangChain y LangGraph son herramientas críticas para construir agentes IA avanzados, cerrando tu brecha técnica actual",
+        "estimated_weeks": 4
+      },
+      {
+        "step": 4,
+        "phase": "Especialización",
+        "course": {
+          "id": "ml-003",
+          "title": "MLOps: De Notebooks a Producción",
+          "provider": "Platzi",
+          "url": "https://platzi.com/cursos/mlops",
+          "description": "CI/CD para ML, MLflow, DVC, Docker en pipelines de machine learning.",
+          "skills_covered": [
+            "MLOps",
+            "MLflow",
+            "DVC",
+            "Docker",
+            "CI/CD",
+            "Python"
+          ],
+          "level": "advanced",
+          "duration_hours": 20.0,
+          "category": "DevOps / Infrastructure",
+          "language": "es",
+          "rating": 4.7,
+          "relevance_score": 0.6102
+        },
+        "rationale": "MLOps es fundamental para llevar modelos de IA desde experimentación hasta producción con metodologías profesionales",
+        "estimated_weeks": 4
+      },
+      {
+        "step": 5,
+        "phase": "Especialización",
+        "course": {
+          "id": "ml-007",
+          "title": "Deep Neural Networks with PyTorch",
+          "provider": "IBM / Coursera",
+          "url": "https://www.coursera.org/learn/deep-neural-networks-with-pytorch",
+          "description": "Desarrollo de modelos de Deep Learning usando PyTorch. Tensores, Autograd, Redes Convolucionales y Transfer Learning.",
+          "skills_covered": [
+            "PyTorch",
+            "Deep Learning",
+            "Python",
+            "Computer Vision",
+            "Neural Networks"
+          ],
+          "level": "advanced",
+          "duration_hours": 24.0,
+          "category": "Data Science / ML",
+          "language": "en",
+          "rating": 4.8,
+          "relevance_score": 0.7087
+        },
+        "rationale": "Profundizar en Deep Neural Networks con PyTorch elevará tus capacidades de modelado de redes neuronales complejas",
+        "estimated_weeks": 5
+      }
+    ],
+    "executive_summary": "Wilson, tu perfil de AI Engineer está en un punto estratégico de evolución. Esta ruta de aprendizaje te llevará de ser un profesional con sólidas bases en IA a convertirte en un ingeniero de inteligencia artificial capaz de construir sistemas inteligentes complejos y escalables.",
+    "current_skills": [
+      {
+        "name": "Python",
+        "category": "Programación",
+        "level": "advanced",
+        "type": "explicita",
+        "justification": "Uso en proyectos de ML, tesis, y prácticas"
+      },
+      {
+        "name": "PyTorch",
+        "category": "Machine Learning",
+        "level": "intermediate",
+        "type": "explicita",
+        "justification": "Mencionado en habilidades de Deep Learning"
+      },
+      {
+        "name": "Scikit-learn",
+        "category": "Machine Learning",
+        "level": "intermediate",
+        "type": "explicita",
+        "justification": "Uso en entrenamiento de modelos de tesis"
+      },
+      {
+        "name": "AWS Bedrock",
+        "category": "Cloud & AI",
+        "level": "beginner",
+        "type": "explicita",
+        "justification": "Mencionado en habilidades digitales"
+      },
+      {
+        "name": "Generative AI",
+        "category": "AI",
+        "level": "intermediate",
+        "type": "explicita",
+        "justification": "Experiencia en HechicerIA con modelos generativos"
+      }
+    ],
+    "suggested_skills": [
+      {
+        "name": "LangChain",
+        "priority": "high"
+      },
+      {
+        "name": "MLflow",
+        "priority": "medium"
+      },
+      {
+        "name": "FastAPI",
+        "priority": "high"
+      },
+      {
+        "name": "Docker",
+        "priority": "medium"
+      }
+    ]
+  },
+  "evaluation": {
+    "key": "overall_mentor_quality",
+    "score": 0.8,
+    "comment": "Ruta muy bien alineada con el objetivo de AI Engineer, con progresión lógica desde prompt engineering hasta MLOps y deep learning. Los niveles son apropiados para un perfil mid-level. Solo podría mejorar intercambiando el orden de los pasos 4 y 5, ya que MLOps requiere entender bien los modelos antes de llevarlos a producción."
+  }
+}

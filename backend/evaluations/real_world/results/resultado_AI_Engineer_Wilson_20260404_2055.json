@@ -1,0 +1,455 @@
+{
+  "session_id": "real-test-20260404-2054",
+  "cv_text": "Data Scientist | AI Engineer | IA Generativa \nWilson Chavesta \n \n+51 957338243 \nmanuelchavesta@gmail.com \nwww.linkedin.com/in/wilsonchavesta \nhttps://github.com/wilsongitdev \nLima, Perú \n \n \n \nPERFIL \nPracticante de IA Generativa | HechicerIA \nFebrero 2026 Presente \n Evalúo y ajusto modelos de última generación (Wan 2.5, LTX) para \nmejorar la creación automática de videos \n Lidero la creación de conjuntos de datos artificiales (data sintética) para \nque los modelos de IA aprendan de forma más rápida y precisa \nLogro: Logré que la IA mantenga la calidad visual original al transformar o \nestilizar videos mediante instrucciones de texto precisas \nAnalista de Datos | Freelance \nJunio 2025 Presente \n Diseñé tableros de control visual (Dashboards) que permiten a las \nempresas entender sus ventas de té y tomar mejores decisiones \nfinancieras \n Analicé grandes volúmenes de datos comerciales para identificar cuáles \nson los productos y países más rentables \nLogro: Implementé un dashboard de análisis de ventas que simplifica el \nseguimiento del éxito de cada producto \nIngeniero de Mantenimiento Indoor | TH INTERNACIONAL S.A.C \nMarzo 2024 a Diciembre 2025 \n Revisé el estado de las estaciones base (BTS) para su correcto \nseguimiento \n Registro, seguimiento y análisis de estados de mantenimiento mediante \nExcel para control operativo y reportes \n Organicé y mejoré el flujo de trabajo del mantenimiento, asegurando el \ncumplimiento de los pasos desde la inspección hasta la validación del \nservicio \nLogro: Reduje los tiempos de ejecución mediante mejoras de procesos \nPracticante en Inteligencia Artificial | UN PULMÓN MÁS \nOctubre 2024 a Diciembre 2024 \n Gestioné datasets mediante limpieza y análisis exploratorio de datos de \nventas utilizando Python y Pandas \n Investigué y evalué técnicas de Machine Learning basadas en literatura \ncientífica para su aplicación en datos históricos \n Documenté el flujo de trabajo, desde el análisis de datos hasta el \nmodelado final \nLogro: Desarrollé y evalué un prototipo de sistema de recomendación \nsobre datos históricos de ventas \nIngeniero con Maestría en Inteligencia Artificial. Especializado en diseñar \nsoluciones que utilizan modelos avanzados para generar contenido y \nautomatizar procesos. Actualmente enfocado en integrar asistentes de voz \ninteligentes y crear datos artificiales para entrenar sistemas de IA de alta \nprecisión \nEXPERIENCIA \n \n \n \n \n \n \nHABILIDADES \nDIGITALES \n \n \n Cloud & AI: AWS (Amazon Bedrock - Agentes de Voz), Microsoft Azure \n(AZ-900), Generación de Data Sintética, Integración de APIs \n Deep Learning & ML: Python (PyTorch, Scikit-learn), Modelos \nMultimodales (Wan 2.5, LTX), XGBoost, LSTM, GRU \n Data Analysis: SQL Avanzado , Análisis Exploratorio de Datos (EDA), \nGit/GitHub \nIDIOMAS \n \n Inglés: B2 (First Certificate in English) \n Español: Nativo \nPROYECTOS Optimización de redes de transporte usando Deep Learning | Tesis de Maestría \nAgosto 2024 a Abril 2025 \n Realicé EDA avanzado y limpieza de datos temporales \n Entrenamiento de modelos como XGBoost, LSTM y GRU usando Python, \npandas, NumPy y scikit-learn \n Evaluar el impacto de modelos predictivos en la optimización de rutas \nEquipo electrónico de control de alcoholemia con capacidad de detección de \nflujo de aire dirigido y reconocimiento de rostro | Publicación y patente \nEnero 2021 a Junio 2023 \n Integré un modelo pre-entrenado (FaceNet) para la identificación de \nusuarios \n Preprocesé y preparé el conjunto de datos de imágenes \n Validación mediante matriz de confusión para medir precisión y tasas de \nerror \nEDUCACIÓN \n \n \n AI Engineer \nData Science Research Perú, Noviembre 2025 al Presente \n SQL for data analysis: Advanced SQL Querying Techniques \nUdemy, Septiembre 2025 a Diciembre 2025 \n AZ-900: Microsoft Azure Fundamentals \nUniversidad Internacional de La Rioja (UNIR), Enero 2025 a Febrero 2025 \n Máster Universitario en Inteligencia Artificial \nUniversidad Internacional de La Rioja (UNIR), Marzo 2024 a Abril 2025 \nTesis: Optimización de redes de transporte usando deep learning \n Ingeniero Electrónico \nUniversidad Peruana de Ciencias Aplicadas (UPC), Junio 2012 a Junio 2020 \nTesis: Desarrollo de un equipo electrónico de control de alcoholemia con \ncapacidad de detección de flujo de aire dirigido y reconocimiento de rostro \n(Calificación: Notable) \nPUBLICACION \nY PATENTE \n \n \n Publicación: 2nd International Conference on Applied Tech (Abril 2021) \n Electronic Equipment with Face Recognition for Alcohol Measurement \n Patente: Solicitud 001450-2021/DIN (Indecopi). Concedida en \nSeptiembre de 2023",
+  "professional_objective": "AI Engineer",
+  "errors": [],
+  "candidate_name": "Wilson Chavesta",
+  "seniority_level": "mid",
+  "years_total_experience": 2.0,
+  "current_skills": [
+    {
+      "name": "PyTorch",
+      "category": "Machine Learning Framework",
+      "level": "intermediate",
+      "type": "explicita",
+      "justification": "Usado en proyectos de ML y tesis"
+    },
+    {
+      "name": "Scikit-learn",
+      "category": "Machine Learning Framework",
+      "level": "intermediate",
+      "type": "explicita",
+      "justification": "Usado en proyectos de ML y tesis"
+    },
+    {
+      "name": "AWS Bedrock",
+      "category": "Cloud AI",
+      "level": "beginner",
+      "type": "explicita",
+      "justification": "Mencionado en habilidades cloud"
+    },
+    {
+      "name": "Microsoft Azure",
+      "category": "Cloud",
+      "level": "beginner",
+      "type": "explicita",
+      "justification": "Certificación AZ-900"
+    },
+    {
+      "name": "SQL",
+      "category": "Data Analysis",
+      "level": "advanced",
+      "type": "explicita",
+      "justification": "Curso avanzado de SQL"
+    },
+    {
+      "name": "Python",
+      "category": "Programming Language",
+      "level": "advanced",
+      "type": "explicita",
+      "justification": "Usado extensivamente en proyectos ML"
+    }
+  ],
+  "suggested_skills": [
+    {
+      "name": "LangChain",
+      "priority": "high"
+    },
+    {
+      "name": "OpenAI",
+      "priority": "high"
+    },
+    {
+      "name": "MLflow",
+      "priority": "medium"
+    },
+    {
+      "name": "FastAPI",
+      "priority": "medium"
+    },
+    {
+      "name": "Docker",
+      "priority": "medium"
+    }
+  ],
+  "profile_summary": "Candidato con formación sólida en IA, maestría especializada y experiencia práctica en proyectos de Machine Learning. Perfil técnico robusto con potencial para roles de AI Engineer, especialmente en generación de contenido y modelos multimodales. Transición natural desde Ingeniería Electrónica hacia AI Engineering con énfasis en soluciones avanzadas de IA.",
+  "current_step": "learning_path_generator",
+  "matched_courses": [
+    {
+      "id": "ml-003",
+      "title": "MLOps: De Notebooks a Producción",
+      "provider": "Platzi",
+      "url": "https://platzi.com/cursos/mlops",
+      "description": "CI/CD para ML, MLflow, DVC, Docker en pipelines de machine learning.",
+      "skills_covered": [
+        "MLOps",
+        "MLflow",
+        "DVC",
+        "Docker",
+        "CI/CD",
+        "Python"
+      ],
+      "level": "advanced",
+      "duration_hours": 20.0,
+      "category": "DevOps / Infrastructure",
+      "language": "es",
+      "rating": 4.7,
+      "relevance_score": 0.6102
+    },
+    {
+      "id": "de-001",
+      "title": "Ingeniería de Datos con Apache Spark y PySpark",
+      "provider": "Coursera",
+      "url": "https://coursera.org/learn/data-engineering-spark",
+      "description": "Procesamiento masivo de datos, Spark SQL, DataFrames y streaming.",
+      "skills_covered": [
+        "Apache Spark",
+        "PySpark",
+        "Big Data",
+        "SQL",
+        "Python"
+      ],
+      "level": "intermediate",
+      "duration_hours": 30.0,
+      "category": "Data Science / ML",
+      "language": "es",
+      "rating": 4.7,
+      "relevance_score": 0.5553
+    },
+    {
+      "id": "be-002",
+      "title": "Microservicios con Docker y Kubernetes",
+      "provider": "Udemy",
+      "url": "https://udemy.com/course/microservicios-docker-kubernetes",
+      "description": "Diseña e implementa arquitecturas de microservicios usando Docker y K8s.",
+      "skills_covered": [
+        "Docker",
+        "Kubernetes",
+        "Microservicios",
+        "DevOps",
+        "CI/CD"
+      ],
+      "level": "advanced",
+      "duration_hours": 28.0,
+      "category": "DevOps / Infrastructure",
+      "language": "es",
+      "rating": 4.8,
+      "relevance_score": 0.6746
+    },
+    {
+      "id": "ai-001",
+      "title": "LangChain y LangGraph: Construye Agentes IA Avanzados",
+      "provider": "Udemy",
+      "url": "https://udemy.com/course/langchain-langgraph-agents",
+      "description": "Crea sistemas multi-agente, RAG pipelines y flujos complejos con LangGraph.",
+      "skills_covered": [
+        "LangChain",
+        "LangGraph",
+        "LLMs",
+        "RAG",
+        "Python",
+        "Agentes IA"
+      ],
+      "level": "advanced",
+      "duration_hours": 16.0,
+      "category": "Framework / Library",
+      "language": "es",
+      "rating": 4.8,
+      "relevance_score": 0.6698
+    },
+    {
+      "id": "ai-004",
+      "title": "Develop Generative AI Solutions with Azure OpenAI",
+      "provider": "Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-openai/",
+      "description": "Implementación oficial de modelos GPT y DALL-E en aplicaciones empresariales usando Azure OpenAI Service.",
+      "skills_covered": [
+        "Azure OpenAI",
+        "Generative AI",
+        "LLMs",
+        "Prompt Engineering",
+        "Cloud",
+        "API"
+      ],
+      "level": "advanced",
+      "duration_hours": 15.0,
+      "category": "Cloud Platform",
+      "language": "es",
+      "rating": 4.9,
+      "relevance_score": 0.5475
+    },
+    {
+      "id": "bi-002",
+      "title": "Microsoft Power BI Data Analyst Professional Certificate",
+      "provider": "Microsoft / Coursera",
+      "url": "https://www.coursera.org/professional-certificates/microsoft-power-bi-data-analyst",
+      "description": "Certificación oficial para preparar y modelar datos, crear reportes visuales dinámicos y dominar DAX avanzado.",
+      "skills_covered": [
+        "Power BI",
+        "DAX",
+        "Data Modeling",
+        "Business Intelligence",
+        "Dashboards"
+      ],
+      "level": "intermediate",
+      "duration_hours": 35.0,
+      "category": "BI / Visualization",
+      "language": "es",
+      "rating": 4.8,
+      "relevance_score": 0.5872
+    },
+    {
+      "id": "ml-005",
+      "title": "Machine Learning Aplicado a Negocio",
+      "provider": "Coursera",
+      "url": "https://coursera.org/learn/ml-aplicado-negocio",
+      "description": "Casos de uso de churn, recomendación y scoring de riesgo con ML clásico.",
+      "skills_covered": [
+        "Machine Learning",
+        "Modelos de Clasificación",
+        "Modelos de Regresión",
+        "Business Metrics"
+      ],
+      "level": "intermediate",
+      "duration_hours": 28.0,
+      "category": "Data Science / ML",
+      "language": "es",
+      "rating": 4.8,
+      "relevance_score": 0.565
+    },
+    {
+      "id": "ai-002",
+      "title": "Prompt Engineering: Domina los LLMs",
+      "provider": "Platzi",
+      "url": "https://platzi.com/cursos/prompt-engineering",
+      "description": "Técnicas avanzadas de prompting: few-shot, chain-of-thought, structured output.",
+      "skills_covered": [
+        "Prompt Engineering",
+        "LLMs",
+        "GPT",
+        "Claude",
+        "OpenAI API"
+      ],
+      "level": "intermediate",
+      "duration_hours": 8.0,
+      "category": "Data Science / ML",
+      "language": "es",
+      "rating": 4.7,
+      "relevance_score": 0.5568
+    }
+  ],
+  "learning_path": {
+    "session_id": "real-test-20260404-2054",
+    "candidate_name": "Wilson Chavesta",
+    "seniority_level": "mid",
+    "total_duration_hours": 89.0,
+    "total_estimated_weeks": 18.0,
+    "steps": [
+      {
+        "step": 1,
+        "phase": "Core",
+        "course": {
+          "id": "ai-002",
+          "title": "Prompt Engineering: Domina los LLMs",
+          "provider": "Platzi",
+          "url": "https://platzi.com/cursos/prompt-engineering",
+          "description": "Técnicas avanzadas de prompting: few-shot, chain-of-thought, structured output.",
+          "skills_covered": [
+            "Prompt Engineering",
+            "LLMs",
+            "GPT",
+            "Claude",
+            "OpenAI API"
+          ],
+          "level": "intermediate",
+          "duration_hours": 8.0,
+          "category": "Data Science / ML",
+          "language": "es",
+          "rating": 4.7,
+          "relevance_score": 0.5568
+        },
+        "rationale": "Profundizar técnicas de Prompt Engineering para optimizar interacción con LLMs, fundamental para AI Engineering",
+        "estimated_weeks": 3
+      },
+      {
+        "step": 2,
+        "phase": "Especialización",
+        "course": {
+          "id": "ai-001",
+          "title": "LangChain y LangGraph: Construye Agentes IA Avanzados",
+          "provider": "Udemy",
+          "url": "https://udemy.com/course/langchain-langgraph-agents",
+          "description": "Crea sistemas multi-agente, RAG pipelines y flujos complejos con LangGraph.",
+          "skills_covered": [
+            "LangChain",
+            "LangGraph",
+            "LLMs",
+            "RAG",
+            "Python",
+            "Agentes IA"
+          ],
+          "level": "advanced",
+          "duration_hours": 16.0,
+          "category": "Framework / Library",
+          "language": "es",
+          "rating": 4.8,
+          "relevance_score": 0.6698
+        },
+        "rationale": "Dominar LangChain y LangGraph para construir agentes IA avanzados, cerrando brecha técnica identificada",
+        "estimated_weeks": 4
+      },
+      {
+        "step": 3,
+        "phase": "Especialización",
+        "course": {
+          "id": "ai-004",
+          "title": "Develop Generative AI Solutions with Azure OpenAI",
+          "provider": "Microsoft Learn",
+          "url": "https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-openai/",
+          "description": "Implementación oficial de modelos GPT y DALL-E en aplicaciones empresariales usando Azure OpenAI Service.",
+          "skills_covered": [
+            "Azure OpenAI",
+            "Generative AI",
+            "LLMs",
+            "Prompt Engineering",
+            "Cloud",
+            "API"
+          ],
+          "level": "advanced",
+          "duration_hours": 15.0,
+          "category": "Cloud Platform",
+          "language": "es",
+          "rating": 4.9,
+          "relevance_score": 0.5475
+        },
+        "rationale": "Implementar soluciones generativas con Azure OpenAI, complementando tu experiencia cloud actual",
+        "estimated_weeks": 4
+      },
+      {
+        "step": 4,
+        "phase": "Especialización",
+        "course": {
+          "id": "ml-003",
+          "title": "MLOps: De Notebooks a Producción",
+          "provider": "Platzi",
+          "url": "https://platzi.com/cursos/mlops",
+          "description": "CI/CD para ML, MLflow, DVC, Docker en pipelines de machine learning.",
+          "skills_covered": [
+            "MLOps",
+            "MLflow",
+            "DVC",
+            "Docker",
+            "CI/CD",
+            "Python"
+          ],
+          "level": "advanced",
+          "duration_hours": 20.0,
+          "category": "DevOps / Infrastructure",
+          "language": "es",
+          "rating": 4.7,
+          "relevance_score": 0.6102
+        },
+        "rationale": "Integrar MLOps para llevar modelos de IA desde experimentación hasta producción escalable",
+        "estimated_weeks": 3
+      },
+      {
+        "step": 5,
+        "phase": "Especialización",
+        "course": {
+          "id": "de-001",
+          "title": "Ingeniería de Datos con Apache Spark y PySpark",
+          "provider": "Coursera",
+          "url": "https://coursera.org/learn/data-engineering-spark",
+          "description": "Procesamiento masivo de datos, Spark SQL, DataFrames y streaming.",
+          "skills_covered": [
+            "Apache Spark",
+            "PySpark",
+            "Big Data",
+            "SQL",
+            "Python"
+          ],
+          "level": "intermediate",
+          "duration_hours": 30.0,
+          "category": "Data Science / ML",
+          "language": "es",
+          "rating": 4.7,
+          "relevance_score": 0.5553
+        },
+        "rationale": "Ampliar capacidades de procesamiento de datos masivos con Apache Spark para proyectos de IA complejos",
+        "estimated_weeks": 4
+      }
+    ],
+    "executive_summary": "Wilson, tu perfil técnico robusto en IA te posiciona estratégicamente para una transición definitiva hacia AI Engineering. Esta ruta de aprendizaje potenciará tus habilidades actuales en PyTorch y Scikit-learn, cerrando brechas críticas en LangChain y OpenAI para convertirte en un profesional de vanguardia en soluciones de IA generativa.",
+    "current_skills": [
+      {
+        "name": "PyTorch",
+        "category": "Machine Learning Framework",
+        "level": "intermediate",
+        "type": "explicita",
+        "justification": "Usado en proyectos de ML y tesis"
+      },
+      {
+        "name": "Scikit-learn",
+        "category": "Machine Learning Framework",
+        "level": "intermediate",
+        "type": "explicita",
+        "justification": "Usado en proyectos de ML y tesis"
+      },
+      {
+        "name": "AWS Bedrock",
+        "category": "Cloud AI",
+        "level": "beginner",
+        "type": "explicita",
+        "justification": "Mencionado en habilidades cloud"
+      },
+      {
+        "name": "Microsoft Azure",
+        "category": "Cloud",
+        "level": "beginner",
+        "type": "explicita",
+        "justification": "Certificación AZ-900"
+      },
+      {
+        "name": "SQL",
+        "category": "Data Analysis",
+        "level": "advanced",
+        "type": "explicita",
+        "justification": "Curso avanzado de SQL"
+      },
+      {
+        "name": "Python",
+        "category": "Programming Language",
+        "level": "advanced",
+        "type": "explicita",
+        "justification": "Usado extensivamente en proyectos ML"
+      }
+    ],
+    "suggested_skills": [
+      {
+        "name": "LangChain",
+        "priority": "high"
+      },
+      {
+        "name": "OpenAI",
+        "priority": "high"
+      },
+      {
+        "name": "MLflow",
+        "priority": "medium"
+      },
+      {
+        "name": "FastAPI",
+        "priority": "medium"
+      },
+      {
+        "name": "Docker",
+        "priority": "medium"
+      }
+    ]
+  },
+  "evaluation": {
+    "key": "overall_mentor_quality",
+    "score": 0.8,
+    "comment": "Ruta muy bien alineada con el objetivo de AI Engineer, con progresión lógica desde prompt engineering hasta MLOps. Los niveles son apropiados para un perfil mid-level. Única mejora: el curso de Spark podría ir antes que MLOps para mejor secuencia de fundamentos de datos antes de operaciones."
+  }
+}

@@ -1,12 +1,11 @@
 """
-FastAPI application entrypoint.
+Punto de entrada de la aplicación FastAPI.
 
-Run with:
+Ejecutar con:
     uvicorn api.main:app --reload --port 8000
 """
 
 from __future__ import annotations
-
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -21,18 +20,18 @@ from utils.logger import logger
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logger.info("CV Analyzer API starting up…")
-    logger.info("LLM provider: %s", settings.llm_provider)
-    logger.info("Vector store: %s", settings.vector_store_type)
+    logger.info("Iniciando la API de Agente Mentor...")
+    logger.info("Proveedor de LLM: {}", settings.llm_provider)
+    logger.info("Almacén vectorial: {}", settings.vector_store_type)
     yield
-    logger.info("CV Analyzer API shutting down.")
+    logger.info("Apagando la API de Agente Mentor.")
 
 
 app = FastAPI(
-    title="CV Analyzer API",
+    title="API Agente Mentor",
     description=(
-        "Multi-agent platform that analyses CVs and generates personalised "
-        "learning paths using LangGraph, LLMs, and semantic search."
+        "Plataforma multi-agente que analiza CVs y genera rutas de "
+        "aprendizaje personalizadas usando LangGraph, LLMs y búsqueda semántica."
     ),
     version="1.0.0",
     docs_url="/docs",
@@ -40,7 +39,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# ── CORS ──────────────────────────────────────────────────────────────────────
+# ── CORS (Permitir peticiones desde el frontend) ──────────────────────────────
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://localhost:3000"],  # Vite / CRA
@@ -49,12 +48,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── Routes ────────────────────────────────────────────────────────────────────
-app.include_router(cv_router, prefix="/api/v1", tags=["CV Upload"])
-app.include_router(lp_router, prefix="/api/v1", tags=["Learning Path"])
+# ── Rutas ────────────────────────────────────────────────────────────────────
+app.include_router(cv_router, prefix="/api/v1", tags=["Subida de CV"])
+app.include_router(lp_router, prefix="/api/v1", tags=["Ruta de Aprendizaje"])
 
 
-# ── Health check ──────────────────────────────────────────────────────────────
-@app.get("/health", tags=["Health"])
+# ── Comprobación de salud (Health check) ──────────────────────────────────────
+@app.get("/health", tags=["Salud"])
 async def health_check() -> JSONResponse:
     return JSONResponse({"status": "ok", "version": "1.0.0"})

@@ -34,7 +34,7 @@ def _get_db():
             )
             logger.info("Firebase initialised successfully.")
         except Exception as exc:
-            logger.error("Firebase initialisation failed: %s", exc)
+            logger.error("Firebase initialisation failed: {}", exc)
             raise
 
     return db.reference("/")
@@ -54,10 +54,10 @@ def get_all_courses() -> List[Dict[str, Any]]:
         for course_id, course_data in data.items():
             course_data["id"] = course_id
             courses.append(course_data)
-        logger.info("Fetched %d courses from Firebase.", len(courses))
+        logger.info("Fetched {} courses from Firebase.", len(courses))
         return courses
     except Exception as exc:
-        logger.error("Error fetching courses: %s", exc)
+        logger.error("Error fetching courses: {}", exc)
         return []
 
 
@@ -69,7 +69,7 @@ def get_course_by_id(course_id: str) -> Optional[Dict[str, Any]]:
             data["id"] = course_id
         return data
     except Exception as exc:
-        logger.error("Error fetching course %s: %s", course_id, exc)
+        logger.error("Error fetching course {}: {}", course_id, exc)
         return None
 
 
@@ -77,9 +77,9 @@ def upsert_course(course_id: str, data: Dict[str, Any]) -> None:
     """Create or update a course in Firebase."""
     try:
         _get_db().child(f"courses/{course_id}").set(data)
-        logger.debug("Upserted course %s in Firebase.", course_id)
+        logger.debug("Upserted course {} in Firebase.", course_id)
     except Exception as exc:
-        logger.error("Error upserting course %s: %s", course_id, exc)
+        logger.error("Error upserting course {}: {}", course_id, exc)
         raise
 
 
@@ -88,9 +88,9 @@ def upsert_course(course_id: str, data: Dict[str, Any]) -> None:
 def save_learning_path(session_id: str, data: Dict[str, Any]) -> None:
     try:
         _get_db().child(f"learning_paths/{session_id}").set(data)
-        logger.info("Saved learning path for session %s.", session_id)
+        logger.info("Saved learning path for session {}.", session_id)
     except Exception as exc:
-        logger.error("Error saving learning path: %s", exc)
+        logger.error("Error saving learning path: {}", exc)
         raise
 
 
@@ -99,5 +99,5 @@ def get_learning_path(session_id: str) -> Optional[Dict[str, Any]]:
         ref = _get_db().child(f"learning_paths/{session_id}")
         return ref.get()
     except Exception as exc:
-        logger.error("Error fetching learning path %s: %s", session_id, exc)
+        logger.error("Error fetching learning path {}: {}", session_id, exc)
         return None

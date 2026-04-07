@@ -1,15 +1,14 @@
 """
-LangGraph orchestration.
+Orquestación de LangGraph.
 
-Flow:
-  pdf_parser ──► skill_extractor ──► course_matcher ──► learning_path_generator ──► END
+Flujo:
+  pdf_parser ──► skill_extractor ──► course_matcher ──► learning_path_generator ──► FIN
 
-Each node is an independent agent that receives the full AgentState and returns
-a partial state dict with its own updates.
+Cada nodo es un agente independiente que recibe el estado completo (AgentState)
+y devuelve un diccionario de estado parcial con sus propias actualizaciones.
 """
 
 from __future__ import annotations
-
 from langgraph.graph import END, StateGraph
 
 from agents.pdf_parser_agent import pdf_parser_node
@@ -21,28 +20,29 @@ from utils.logger import logger
 
 
 def _should_stop_on_error(state: AgentState) -> str:
-    """Conditional edge: abort the pipeline if a critical error occurred."""
+    """Arista condicional: detiene el pipeline si ocurre un error crítico."""
     errors = state.get("errors", [])
     current_step = state.get("current_step", "")
     if errors and current_step in ("pdf_parser", "skill_extractor"):
-        logger.warning("Critical error detected at %s – aborting pipeline.", current_step)
+        logger.warning("Error crítico detectado en {} – abortando el pipeline.", current_step)
         return "end"
     return "continue"
 
 
 def build_graph() -> StateGraph:
+    """Construye y compila el flujo de agentes."""
     graph = StateGraph(AgentState)
 
-    # ── Register nodes ────────────────────────────────────────────────────
+    # ── Registro de nodos ────────────────────────────────────────────────
     graph.add_node("pdf_parser", pdf_parser_node)
     graph.add_node("skill_extractor", skill_extraction_node)
     graph.add_node("course_matcher", course_matching_node)
     graph.add_node("learning_path_generator", learning_path_node)
 
-    # ── Entry point ───────────────────────────────────────────────────────
+    # ── Punto de entrada ─────────────────────────────────────────────────
     graph.set_entry_point("pdf_parser")
 
-    # ── Edges ─────────────────────────────────────────────────────────────
+    # ── Conexiones (Aristas) ──────────────────────────────────────────────
     graph.add_conditional_edges(
         "pdf_parser",
         _should_stop_on_error,
@@ -59,5 +59,5 @@ def build_graph() -> StateGraph:
     return graph.compile()
 
 
-# Singleton compiled graph used by the API
+# Singleton del grafo compilado utilizado por la API
 cv_analysis_graph = build_graph()
