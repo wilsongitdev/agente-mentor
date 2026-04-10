@@ -54,23 +54,48 @@ def generate_e2e_report():
                 scores_by_key[key].append(f.score)
         
         # Calcular latencia (segundos) y costo aproximado
+        # IMPORTANTE: Solo se consideran los runs de nivel raíz (sin parent_run_id)
+        # para medir el tiempo E2E real del agente completo, sin distorsión de sub-runs.
         total_latency = 0
-        total_tokens = 0
-        run_count = len(runs) if len(runs) > 0 else 1
+        total_tokens_agent = 0   # Tokens del pipeline del agente (sin el juez evaluador)
+        total_tokens_judge = 0   # Tokens del LLM-Judge (separados para referencia)
+
+        root_runs = [r for r in runs if getattr(r, 'parent_run_id', None) is None]
+        run_count = len(root_runs) if len(root_runs) > 0 else 1
         
-        for r in runs:
+        for r in root_runs:
             if getattr(r, 'start_time', None) and getattr(r, 'end_time', None):
                 latency = (r.end_time - r.start_time).total_seconds()
                 total_latency += latency
+        
+        # Tokens: separar runs del agente de los del juez (evaluador LLM-as-Judge)
+        # Los runs del juez son identificables porque su nombre contiene "ChatPromptTemplate"
+        # o "RunnableSequence" generado por _build_judge_chain, o porque son runs de tipo
+        # "evaluator" registrados por LangSmith automáticamente.
+        JUDGE_KEYWORDS = ["judge", "evaluator", "ChatPromptTemplate", "JsonOutputParser", "RunnableSequence"]
+        
+        for r in runs:
+            run_name = (getattr(r, 'name', '') or '').lower()
+            run_type = (getattr(r, 'run_type', '') or '').lower()
+            is_judge_run = (
+                run_type == "evaluator" or
+                any(kw.lower() in run_name for kw in JUDGE_KEYWORDS)
+            )
             
-            # LangSmith acumula los tokens en r.total_tokens o extra fields
+            tokens = 0
             if hasattr(r, 'total_tokens') and r.total_tokens:
-                total_tokens += r.total_tokens
+                tokens = r.total_tokens
             elif r.extra and "total_tokens" in r.extra:
-                total_tokens += r.extra["total_tokens"]
+                tokens = r.extra["total_tokens"]
+            
+            if is_judge_run:
+                total_tokens_judge += tokens
+            else:
+                total_tokens_agent += tokens
 
         avg_latency = total_latency / run_count
-        avg_tokens = total_tokens / run_count
+        # Usamos solo los tokens del agente (sin el juez) para la gráfica
+        avg_tokens = total_tokens_agent / run_count
         # Costo aprox por sesión (asumiendo GPT-4o-mini o GPT-3.5: ~$0.5 / 1M tokens = $0.0005 por 1k)
         # Esto es referencial para la gráfica
         costo_promedio_centavos = (avg_tokens / 1000) * 0.05 
