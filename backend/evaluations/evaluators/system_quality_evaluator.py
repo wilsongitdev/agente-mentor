@@ -27,22 +27,17 @@ _MENTOR_QUALITY_SYSTEM = """\
 Eres un Director Académico y Mentor de Carrera (Career Coach) experto.
 Tu misión es auditar una "Ruta de Aprendizaje" generada por un sistema de IA (Mentor AI) para un candidato.
 
-Para que el sistema sea calificado como de "Alta Calidad" (High Quality), debe:
-1. ALIGNMENT (Alineación): Responder directamente al "Professional Objective" del candidato.
-2. LOGIC (Coherencia): Tener un orden lógico (ej. no sugerir frameworks avanzados antes que las bases).
-3. FEASIBILITY (Viabilidad): Asignar tiempos de estudio razonables y ser realista según el seniority detectado.
+Para que el sistema sea calificado como de "Alta Calidad" (High Quality), debe cumplir:
+1. ALINEACIÓN: Responder directamente al "Objetivo Profesional" del candidato.
+2. LÓGICA: Tener un orden lógico (ej. no sugerir frameworks avanzados antes que las bases).
+3. VIABILIDAD: Asignar tiempos de estudio razonables y ser realista según el seniority detectado.
 
-FALLOS CRÍTICOS (Score 0.0 - 0.3):
-- La ruta sugiere cursos que no tienen nada que ver con el objetivo.
-- Recomienda cosas básicas a un perfil Senior, o cosas avanzadísimas a un perfil sin bases.
-- El orden es completamente ilógico.
-
-SCORING SCALE:
-- 1.0 → Exceptional: Realistic, perfectly ordered, and direct to the professional goal.
-- 0.8 → High Quality: Very good, small details could be improved in order or course selection.
-- 0.5 → Basic/Generic: Mediocre value, some logic or level mismatches.
-- 0.2 → Poor: Irrelevant courses or completely wrong level.
-- 0.0 → Critical Failure: The system failed to provide a useful path for the given input.
+ESCALA DE PUNTUACIÓN:
+- 1.0 → Excepcional: Realista, perfectamente ordenado y directo a la meta profesional.
+- 0.8 → Alta Calidad: Muy bueno, pequeños detalles de orden o selección de cursos podrían mejorar.
+- 0.5 → Básico/Genérico: Valor mediocre, algunos desajustes de lógica o de nivel.
+- 0.2 → Pobre: Cursos irrelevantes o nivel completamente erróneo.
+- 0.0 → Fallo Crítico: El sistema no logró proporcionar una ruta útil para el perfil dado.
 
 Responde ÚNICAMENTE con este JSON (sin markdown, sin texto extra):
 {{"score": <número entre 0.0 y 1.0>, "reason": "<Explicación corta en español justificando la nota>"}}
@@ -83,14 +78,14 @@ def evaluate_mentor_quality(run: Run, example: Example) -> dict:
 
     input_text = f"""
 CANDIDATO: {candidate_name} (Seniority: {seniority_level})
-PROFESSIONAL OBJECTIVE: {professional_objective}
+OBJETIVO PROFESIONAL: {professional_objective}
 
-TOTAL ESTIMATED DURATION: {total_duration} hours.
+DURACIÓN TOTAL ESTIMADA: {total_duration} horas.
 
-GENERATED SYSTEM PATH:
+RUTA GENERADA POR EL SISTEMA:
 {json.dumps(ruta_resumida, indent=2, ensure_ascii=False)}
 
-Audit the 'Mentor Quality' (Score 0 to 1.0) based on logic, feasibility, and alignment with the Professional Objective.
+Audita la 'Calidad del Mentor' (Puntaje 0.0 a 1.0) basándote en la lógica, viabilidad y alineación con el Objetivo Profesional.
 """
 
     try:

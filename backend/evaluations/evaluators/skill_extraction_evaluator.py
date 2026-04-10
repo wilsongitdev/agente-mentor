@@ -98,29 +98,29 @@ _FIDELITY_SYSTEM = """\
 Eres un auditor experto en calidad de sistemas de IA para análisis de CVs.
 Tu misión es la más crítica del pipeline: detectar ALUCINACIONES.
 
-Una alucinación ocurre cuando el agente extrae una skill que:
+Una alucinación ocurre cuando el agente extrae una habilidad que:
   a) No aparece en ninguna parte del CV (ni explícita ni implícitamente).
-  b) O asigna el nivel "advanced" o "expert" a algo que el candidato apenas mencionó de paso.
+  b) O asigna el nivel "avanzado" o "experto" a algo que el candidato apenas mencionó de paso.
 
 DEFINICIONES CLAVE:
-- "explicita": La herramienta/skill aparece nombrada directamente en el CV.
+- "explícita": La herramienta/habilidad aparece nombrada directamente en el CV.
 - "inferida válida": No aparece nombrada, pero es OBVIA e INDISPENSABLE para el
   rol o logro descrito. Ejemplo: un "Data Engineer" que diseñó pipelines ETL
-  con PySpark IMPLICA Python aunque no lo mencione.
-- "alucinación": La skill no aparece y no es una inferencia lógica del rol.
+  con PySpark IMPLICA Python aunque no lo mencione explícitamente.
+- "alucinación": La habilidad no aparece y no es una inferencia lógica del rol.
 
-ESCALA DE SCORING:
-- 1.0 → Cero alucinaciones. Todo lo extraído está justificado por el CV.
-- 0.8 → 1 skill inferida que es cuestionable pero defendible.
-- 0.5 → 2-3 skills sin respaldo claro en el CV, o 1 nivel claramente exagerado.
+ESCALA DE PUNTUACIÓN:
+- 1.0 → Cero alucinaciones. Todo lo extraído está plenamente justificado.
+- 0.8 → 1 habilidad inferida que es cuestionable pero defendible.
+- 0.5 → 2-3 habilidades sin respaldo claro, o 1 nivel claramente exagerado.
 - 0.2 → Varias alucinaciones que contaminarían la ruta de aprendizaje.
 - 0.0 → FALLO CRÍTICO: El agente inventó herramientas clave o ignoró el stack
-         principal del candidato (ej: no extraer Python en un perfil de Data Science).
+         principal del perfil (ej: no extraer Python en un perfil de Data Science).
 
 IMPORTANTE: Sé muy estricto. La credibilidad del mentor depende de esta métrica.
 
 Responde ÚNICAMENTE con este JSON (sin markdown, sin texto extra):
-{{"score": <número entre 0.0 y 1.0>, "reason": "<explicación breve en español, menciona skills específicas si hay errores>"}}
+{{"score": <número entre 0.0 y 1.0>, "reason": "<explicación breve en español, menciona habilidades específicas si hay errores>"}}
 """
 
 
@@ -157,8 +157,8 @@ Habilidades ideales (Ground Truth):
 HABILIDADES EXTRAÍDAS POR EL AGENTE:
 {json.dumps(current_skills, indent=2, ensure_ascii=False)}
 
-Audita cada skill extraída por el agente comparándola con el CV y las habilidades ideales. ¿Tiene respaldo real o es una alucinación?
-Menciona en tu razón qué skills específicas son problemáticas, si las hay.
+Audita cada habilidad extraída por el agente comparándola con el CV y las habilidades ideales. ¿Tiene respaldo real o es una alucinación?
+Menciona en tu razón qué habilidades específicas son problemáticas, si las hay.
 """
 
     try:
@@ -180,28 +180,24 @@ Eres un experto coach de carrera técnica con 15 años de experiencia.
 Tu tarea es evaluar si las habilidades SUGERIDAS por un agente de IA son
 el puente real y específico entre el perfil actual del candidato y su objetivo profesional.
 
-Un mentor de calidad NO sugiere cosas genéricas para rellenar. Las sugerencias
+Un mentor de calidad NO sugiere temas genéricos solo para rellenar. Las sugerencias
 deben ser el camino más corto y efectivo hacia el objetivo declarado.
 
-FALLOS CRÍTICOS que llevan a score 0.0:
-  a) Sugerir una habilidad que el candidato ya tiene marcada como "advanced" o "expert".
-  b) Sugerir cosas tan genéricas que valen para cualquier perfil (ej: "Comunicación",
-     "Git", "Trabajo en equipo" para alguien con 5 años de experiencia).
-  c) Las sugerencias no guardan relación con el objetivo profesional declarado.
-  d) Priorizar como "high" algo que el candidato ya domina o que no es relevante
-     para su objetivo.
+FALLOS CRÍTICOS que llevan a puntuación 0.0:
+  a) Sugerir una habilidad que el candidato ya tiene marcada como "avanzada" o "experta".
+  b) Sugerir temas tan genéricos que valen para cualquier perfil básico (ej: "Git",
+     "Comunicación", "Trabajo en equipo" para alguien con 5 años de experiencia técnica).
+  c) Las sugerencias no guardan relación lógica con el objetivo profesional.
 
-ESCALA DE SCORING:
+ESCALA DE PUNTUACIÓN:
 - 1.0 → Cada sugerencia es el puente exacto al objetivo. Priorizadas perfectamente.
-         Las razones son específicas y convincentes (no genéricas).
-- 0.8 → La mayoría son excelentes, con 1 sugerencia mejorable o un "reason" vago.
-- 0.5 → Mix de buenas y genéricas. Alguna prioridad mal asignada.
-- 0.2 → La mayoría son genéricas, redundantes o mal priorizadas.
-- 0.0 → FALLO CRÍTICO: Sugiere skills que ya tiene, o completamente irrelevantes
-         para el objetivo declarado.
+- 0.8 → La mayoría son excelentes; quizás 1 sugerencia es mejorable o el "reason" es vago.
+- 0.5 → Mezcla de sugerencias valiosas y genéricas. Alguna prioridad mal asignada.
+- 0.2 → La mayoría son genéricas, redundantes o mal enfocadas.
+- 0.0 → FALLO CRÍTICO: Sugiere habilidades que ya posee o que son irrelevantes.
 
-Responde ÚNICAMENTE con este JSON (sin markdown, sin texto extra):
-{{"score": <número entre 0.0 y 1.0>, "reason": "<explicación en español, menciona sugerencias específicas problemáticas o destacadas>"}}
+Responde ÚNICAMENTE con este JSON:
+{{"score": <número entre 0.0 y 1.0>, "reason": "<explicación en español justificando con ejemplos>"}}
 """
 
 
@@ -228,7 +224,7 @@ def evaluate_gap_pertinence(run: Run, example: Example) -> dict:
             "comment": "FALLO CRÍTICO: El agente no generó ninguna sugerencia de habilidades.",
         }
 
-    # Extraer skills actuales en nivel avanzado para detectar redundancias
+    # Extraer habilidades actuales en nivel avanzado para detectar redundancias
     advanced_skills = [
         s.get("name", "")
         for s in current_skills
@@ -244,17 +240,14 @@ SENIORITY DETECTADO: {seniority}
 HABILIDADES ACTUALES DEL CANDIDATO:
 {json.dumps(current_skills, indent=2, ensure_ascii=False)}
 
-SKILLS YA DOMINADAS (advanced/expert) — No deberían ser sugeridas:
+HABILIDADES YA DOMINADAS (avanzado/experto):
 {json.dumps(advanced_skills, ensure_ascii=False)}
-
-SUGERENCIAS IDEALES (Ground Truth):
-{json.dumps((example.outputs or {}).get("suggested_skills", []), indent=2, ensure_ascii=False)}
 
 SUGERENCIAS DEL AGENTE (lo que evaluarás):
 {json.dumps(suggested_skills, indent=2, ensure_ascii=False)}
 
-Evalúa si cada sugerencia del agente es el puente real al objetivo, tomando como referencia las sugerencias ideales si están disponibles.
-Penaliza duramente si alguna sugerida ya está en la lista de skills dominadas.
+Evalúa si cada sugerencia del agente es el puente real al objetivo profesional.
+Penaliza duramente si alguna sugerida ya está en la lista de habilidades dominadas.
 """
 
     try:
@@ -276,34 +269,26 @@ Eres un director de ingeniería con 20 años de experiencia evaluando perfiles t
 Tu tarea es verificar si el nivel de seniority asignado por un agente de IA
 es COHERENTE y CONSISTENTE con tres fuentes de evidencia del CV:
 
-  1. AÑOS DE EXPERIENCIA: ¿Cuántos años reales de experiencia profesional acredita? Usa la "FECHA DE EVALUACIÓN" entregada abajo como LA FECHA ACTUAL para calcular tiempos referidos como 'Actual' o 'Presente'.
-  2. COMPLEJIDAD DE SKILLS: ¿Los niveles de sus habilidades (beginner/intermediate/advanced/expert) reflejan madurez técnica real?
+  1. AÑOS DE EXPERIENCIA: ¿Cuántos años reales acredita? Usa la "FECHA DE EVALUACIÓN" como hoy.
+  2. COMPLEJIDAD DE SKILLS: ¿Los niveles reflejan madurez técnica real (principiante/medio/avanzado)?
   3. RESPONSABILIDADES: ¿Lideró equipos? ¿Tomó decisiones de arquitectura?
 
-ESCALA DE SENIORITY de referencia (Flexible según impacto):
-- junior:    0-2 años. Estudiantes, practicantes y perfiles sin autonomía técnica.
-- mid:       2-5 años. Resuelve problemas autónomamente.
-- senior:    AL MENOS UNO DE: a) 5+ años técnicos, b) 3+ años con Liderazgo Técnico (arquitectura, mentoría), c) Maestría/Doctorado + 3+ años relacionados.
+ESCALA DE SENIORITY de referencia:
+- junior:    0-2 años técnicos. Estudiantes o perfiles sin autonomía.
+- mid:       2-5 años. Resuelve problemas de forma autónoma.
+- senior:    AL MENOS UNO DE: a) 5+ años técnicos, b) 3+ años con Liderazgo Técnico, c) Maestría/Doc + 3+ años.
 - lead:      8+ años con gestión de equipos o responsabilidad de producto.
-- principal: 10+ años, decisiones estratégicas nivel empresa.
+- principal: 10+ años, decisiones estratégicas en la organización.
 
-REGLAS DE EXCEPCIÓN MUY IMPORTANTES (No penalizar al agente aquí):
-1. TRANSICIONES DE CARRERA: Si el candidato tiene 5 o más años de experiencia pero en un área NO TÉCNICA o muy distinta (ej. Chef, Administración, Ventas) y su objetivo es un rol técnico (ej. AI Engineer), su experiencia técnica real es 0. El seniority asignado en este caso DEBE SER 'junior'. Si el agente extrajo 5.0 años de experiencia total pero asignó 'junior', es TOTALMENTE COHERENTE y el agente merece un score de 1.0.
-2. ESTUDIANTES: Todo estudiante o recién graduado es 'junior', sin importar si un ground truth antiguo decía 'None'.
+REGLAS DE EXCEPCIÓN (No penalizar al agente aquí):
+1. TRANSICIONES DE CARRERA: Si el candidato tiene 10 años en "Ventas" pero busca su primer rol como "AI Engineer", su seniority técnico es 'junior'. Esto es CORRECTO (Score 1.0).
 
-FALLOS CRÍTICOS que llevan a score 0.0 (Aplica sólo cuando no hay excepciones):
-  a) Etiquetar "senior" a alguien con skills todas en "beginner".
-  b) Etiquetar "junior" a alguien con 8+ años de experiencia técnica real liderando.
-  c) Contradicción directa sin justificación de transición de carrera.
+FALLOS CRÍTICOS (Score 0.0):
+  a) Etiquetar "senior" a alguien con habilidades todas en nivel principiante.
+  b) Etiquetar "junior" a alguien con 8+ años de liderazgo técnico real.
 
-ESCALA DE SCORING:
-- 1.0 → Perfectamente consistente con reglas y excepciones (Transiciones = junior).
-- 0.8 → Correcto, pero podría argumentarse el nivel adyacente.
-- 0.5 → Cuestionable dado el perfil.
-- 0.0 → FALLO CRÍTICO: Contradicción técnica directa sin ser transición.
-
-Responde ÚNICAMENTE con este JSON (sin markdown):
-{{"score": <número>, "reason": "<explicación justificando con la escala y reglas>"}}
+Responde ÚNICAMENTE con este JSON:
+{{"score": <número>, "reason": "<explicación justificando con las reglas de seniority>"}}
 """
 
 
@@ -312,9 +297,9 @@ def evaluate_seniority_consistency(run: Run, example: Example) -> dict:
     MÉTRICA 3 — Consistencia de Seniority.
 
     ¿El nivel asignado (junior/mid/senior/lead/principal) es coherente
-    con los años de experiencia y la complejidad de las skills extraídas?
+    con los años de experiencia y la complejidad de las habilidades extraídas?
 
-    Fallo crítico: Senior con skills beginner, o junior con 10 años liderando equipos.
+    Fallo crítico: Senior con habilidades beginner, o junior con 10 años liderando equipos.
     """
     cv_text = (example.inputs or {}).get("cv_text", "")
     current_skills = (run.outputs or {}).get("current_skills", [])
@@ -350,10 +335,10 @@ SENIORITY ASIGNADO POR EL AGENTE: {seniority}
 AÑOS DE EXPERIENCIA DETECTADOS: {years_experience}
 RESUMEN DEL PERFIL: {profile_summary}
 
-DISTRIBUCIÓN DE NIVELES DE SKILLS EXTRAÍDAS:
+DISTRIBUCIÓN DE NIVELES DE HABILIDADES EXTRAÍDAS:
 {json.dumps(level_distribution, ensure_ascii=False)}
 
-SKILLS COMPLETAS (para verificar coherencia):
+HABILIDADES COMPLETAS (para verificar coherencia):
 {json.dumps(current_skills, indent=2, ensure_ascii=False)}
 
 ¿El seniority "{seniority}" es coherente con esta evidencia y el ideal esperado?
