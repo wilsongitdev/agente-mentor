@@ -98,6 +98,9 @@ El módulo de Course Matching combina **búsqueda vectorial semántica** (FAISS)
 | Evaluación | LangSmith (trazabilidad + métricas) |
 | Entorno | Miniconda + Python 3.11 |
 
+> [!NOTE]
+> Aunque el sistema es agnóstico al proveedor, todos los resultados y métricas presentados en este repositorio fueron obtenidos utilizando **AWS Bedrock (Claude 3.5 Haiku)** como motor principal.
+
 ---
 
 ## 📂 Estructura del Proyecto
