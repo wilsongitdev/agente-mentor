@@ -414,6 +414,10 @@ Evaluación sobre **7 CVs reales de LinkedIn** (21 corridas en LangSmith):
 
 > La integración del **Reranking Heurístico** en el Agente 3 es la mejora arquitectónica más impactante, produciendo un salto del **+52% en calidad E2E** con solo +2 segundos de latencia adicionales y un costo operativo mínimamente mayor.
 
+![Rendimiento de extracción de habilidades](backend/1_rendimiento_extraccion_habilidades.png)
+![Evolución arquitectura pedagógica](backend/2_evolucion_arquitectura_pedagogica.png)
+![Evaluación detallada CVs reales](backend/3_evaluacion_detallada_cvs_reales.png)
+![Rendimiento sistema completo](backend/4_rendimiento_sistema_completo.png)
 ---
 
 ## 💡 Posibles Mejoras
