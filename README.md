@@ -53,9 +53,8 @@ El sistema fue validado con **21 experimentos en LangSmith** sobre 7 CVs reales 
                  │  ┌─────────────┐   ┌─────────────────┐ │
                  │  │  Agente 1   │──►│    Agente 2      │ │
                  │  │ PDF Parser  │   │ Skill Extractor  │ │
-                 │  │(E2B Sandbox)│   │  (LLM: Claude /  │ │
-                 │  └─────────────┘   │   GPT-4o-mini)  │ │
-                 │                    └────────┬─────────┘ │
+                 │  │(E2B Sandbox)│   │  (LLM: Claude)   │ │
+                 │  └─────────────┘   └────────┬─────────┘ │
                  │                             │           │
                  │  ┌─────────────┐   ┌────────▼─────────┐ │
                  │  │  Agente 4   │◄──│    Agente 3      │ │
@@ -88,7 +87,7 @@ El módulo de Course Matching combina **búsqueda vectorial semántica** (FAISS)
 | Capa | Tecnología |
 |------|-----------|
 | Orquestación | LangGraph 0.1.x |
-| LLM | AWS Bedrock (Claude 3.5 Haiku) _o_ OpenAI GPT-4o-mini |
+| LLM | AWS Bedrock (Claude 3.5 Haiku / Sonnet) |
 | Embeddings | OpenAI `text-embedding-3-small` |
 | PDF Parsing | E2B Code Interpreter (Sandbox) + pdfplumber |
 | Vector Store | FAISS (o Chroma, configurable) |
